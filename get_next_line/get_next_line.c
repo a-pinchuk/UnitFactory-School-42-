@@ -1,6 +1,22 @@
 //
 // Created by Andrey Pinchuk on 2/10/17.
 //
+//WARNING!!!!!!!!!!!
+//WARNING!!!!!!!!!!!
+
+//WARNING!!!!!!!!!!!
+
+//WARNING!!!!!!!!!!!
+
+//Before applying these changes try the modified existing code, will it work so?
+
+//WARNING!!!!!!!!!!!
+
+//WARNING!!!!!!!!!!!
+
+//WARNING!!!!!!!!!!!
+
+//WARNING!!!!!!!!!!!
 
 #include "get_next_line.h"
 
@@ -30,11 +46,25 @@ t_list *compare_fd(int fd, t_list *MAIN)
     return(i);
 }
 
-int write_in_line (t_list *i, char **line)
+int write_in_line (t_list *i, char **line, char *str_to_free)
 {
-        *line = ft_strsub(i->str, 0, (ft_strchr(i->str, 10) - i->str));
-        i->str += (ft_strchr(i->str, 10) - i->str);
-        return(1);
+    char    *temp;
+    
+    temp = ft_strdup(ft_strchr(i->str, 10)); // we need a function which mallocs from the start to the end. I think in libft is appropriate variant.
+    if (*(str))
+    {
+        free(str);
+        free(i->str);
+    }
+    else
+    {
+        str = i->str;
+        free(str);
+    }
+    *line = ft_strsub(i->str, 0, (ft_strchr(i->str, 10) - i->str));
+    //i->str += (ft_strchr(i->str, 10) - i->str);
+    i->str = temp;
+    return(1);
 }
 
 int get_next_line   (const int fd, char **line)
@@ -42,6 +72,7 @@ int get_next_line   (const int fd, char **line)
     char buffer[BUFF_SIZE + 1];
     static t_list *MAIN = NULL;
     ssize_t symbols;
+    char    *str_to_free;
     t_list *i;
 
     if (fd == -1 || (!line) || (read(fd, NULL, 0) == -1) || !(ft_memset(buffer, 0, (BUFF_SIZE + 1))))
@@ -50,17 +81,17 @@ int get_next_line   (const int fd, char **line)
     i = compare_fd(fd, MAIN);
     while((symbols = read(fd, buffer, BUFF_SIZE)) >= 0)
     {
-        (symbols < BUFF_SIZE) ? buffer[symbols] = '\0' : 0;
+        (symbols < BUFF_SIZE && (str_to_free = i->str)) ? bufffer[symbols] = '\0' : 0;
         i->str = ft_strjoin(i->str, buffer);
-        i->str += (i->str[0] == '\n') ? 1 : 0;
-        if (ft_strchr(i->str, 10))
-            return (write_in_line(i, line));
+        if ((i->str += (i->str[0] == '\n') ? 1 : 0) && ft_strchr(i->str, 10))
+            return (write_in_line(i, line, str_to_free));
         if(i->str[ft_strlen(i->str) - 1] != '\n' && ft_strlen(buffer) == 0)
         {
             i->str[ft_strlen(i->str)] = '\n';
-            i->str[ft_strlen(i->str) + 1] = '\0';
+            //i->str[ft_strlen(i->str) + 1] = '\0'; //Can we comment it??? Will it work without it?
             continue ;
         }
+        (*(str)) ? free(str) : 0;
         if(symbols == 0)
             return (0);
     }
