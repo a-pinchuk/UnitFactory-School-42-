@@ -51,17 +51,17 @@ int write_in_line (t_list *i, char **line, char *str_to_free)
     char    *temp;
     
     temp = ft_strdup(ft_strchr(i->str, 10)); // we need a function which mallocs from the start to the end. I think in libft is appropriate variant.
-    if (*(str))
+    *line = ft_strsub(i->str, 0, (ft_strchr(i->str, 10) - i->str));
+    if (*(str_to_free))
     {
-        free(str);
+        free(str_to_free);
         free(i->str);
     }
     else
     {
-        str = i->str;
-        free(str);
+        str_to_free = i->str;
+        free(str_to_free);
     }
-    *line = ft_strsub(i->str, 0, (ft_strchr(i->str, 10) - i->str));
     //i->str += (ft_strchr(i->str, 10) - i->str);
     i->str = temp;
     return(1);
@@ -81,17 +81,18 @@ int get_next_line   (const int fd, char **line)
     i = compare_fd(fd, MAIN);
     while((symbols = read(fd, buffer, BUFF_SIZE)) >= 0)
     {
-        (symbols < BUFF_SIZE && (str_to_free = i->str)) ? bufffer[symbols] = '\0' : 0;
+        (symbols < BUFF_SIZE && (str_to_free = i->str)) ? buffer[symbols] = '\0' : 0;
         i->str = ft_strjoin(i->str, buffer);
-        if ((i->str += (i->str[0] == '\n') ? 1 : 0) && ft_strchr(i->str, 10))
+        (i->str += (i->str[0] == '\n') ? 1 : 0);
+        if (ft_strchr(i->str, 10))
             return (write_in_line(i, line, str_to_free));
         if(i->str[ft_strlen(i->str) - 1] != '\n' && ft_strlen(buffer) == 0)
         {
             i->str[ft_strlen(i->str)] = '\n';
-            //i->str[ft_strlen(i->str) + 1] = '\0'; //Can we comment it??? Will it work without it?
+            i->str[ft_strlen(i->str) + 1] = '\0'; //Can we comment it??? Will it work without it?
             continue ;
         }
-        (*(str)) ? free(str) : 0;
+        (*(str_to_free)) ? free(str_to_free) : 0;
         if(symbols == 0)
             return (0);
     }

@@ -1,25 +1,28 @@
-//
-// Created by Andrey Pinchuk on 2/10/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apinchuk <apinchuk@student.unit.ua>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/29 13:35:57 by apinchuk          #+#    #+#             */
+/*   Updated: 2016/12/18 14:10:42 by apinchuk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef GET_NET_LINE_GET_NEXT_LINE_H
-#define GET_NET_LINE_GET_NEXT_LINE_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-
-#define BUFF_SIZE 1
 
 typedef struct	s_list
 {
-    int     fd;
-    char    *str;
-    struct s_list	*next;
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
 }				t_list;
 
-int	            get_next_line(int const fd, char **line);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			ft_putnbr(int nb);
@@ -85,4 +88,4 @@ int				ft_word(char const *s, char c);
 size_t			ft_digit(int n);
 int				ft_is_lowercase(char *str);
 
-#endif //GET_NET_LINE_GET_NEXT_LINE_H
+#endif
