@@ -1,37 +1,39 @@
 #ifndef FDF_H
 #define FDF_H
 
-#include "minilibx/mlx.h"
-#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h>
+#include <stdio.h>
+#include "minilibx/mlx.h"
+#include "get_next_line.h"
 
-typedef struct s_coor
+typedef struct s_pnt
 {
 	double	x;
 	double 	y;
 	double	z;
 	int 	color;
-}			t_coor;
-
-typedef struct s_field
-{
-	t_coor 	**t_coors;
-	int		len;
-}			   t_field;
+}			t_pnt;
 
 typedef struct 	s_env
 {
+	int				xlen;
+	int				ylen;			
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
 	char			*addr;
 	int				endian;
 	int				bpp;
-	struct s_coor	***coors_arr;
+	t_pnt			***field_ptr;
 }				t_env;
 
-int				get_next_line(int fd, char **line);
-char			**ft_strsplit(char const *s, char c);
+void		fdf_create_structures_arr(char *av, t_env *e);
+void		fdf_drawing_field(t_env *e);
+void		fdf_no_map(void);
+void		fdf_error(void);
+int 		key_hook(int keycode, t_env *e);
+void	bresenheim_algorithm_ints(t_pnt *pnt1, t_pnt *pnt2, t_env *e);
+
 #endif
