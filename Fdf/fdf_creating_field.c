@@ -5,10 +5,10 @@ static t_pnt		*fdf_create_point(double x, double y, double z)
 	t_pnt	*point;
 
 	point = (t_pnt*)malloc(sizeof(t_pnt));
-	point->x = x;
-	point->y = y;
+	point->x = x * 20;
+	point->y = y * 20;
 	point->z = z;
-	point->color = 0x00FF0000;
+	point->color = 0x00FE6B7A;//(int)point->z;
 	return (point);
 }
 
@@ -21,6 +21,7 @@ static void 	fdf_fullfil_field_s(t_env *e, char **temp, int y)
 	j = -1;
 	while (temp[++i])
 		e->field_ptr[y][++j] = fdf_create_point((double)i, (double)y, ((double)atoi(temp[i])));
+	e->field_ptr[y][++j] = NULL;
 }
 
 static void 	fdf_fullfil_field_f(char *av, t_env *e)
@@ -40,6 +41,7 @@ static void 	fdf_fullfil_field_f(char *av, t_env *e)
 		temp = ft_strsplit(line, 32);
 		fdf_fullfil_field_s(e, temp, y);
 	}
+	e->field_ptr[++y] = (t_pnt**)malloc(sizeof(t_pnt*) * e->xlen);
 	close(fd);
 }
 
