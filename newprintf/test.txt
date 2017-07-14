@@ -1,0 +1,300 @@
+FIRST:[SECOND:THIRD:FORTH:FIFTH:SIXTH:SEVENTH:[EIGHTS:[NINTH:[TENTH:ELEVENTH:TWELWTH:THIRTEENTH:FOURTEENTH:FIFTTEENTH:[1:%10[
+2:%10[
+3:%10[
+4:%10[
+5:%10[
+6:%10
+7:%10
+8:10
+9:
+9:
+instruction->type:[
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%010d
+2:%010d
+3:%010d
+4:%010d
+5:%010d
+6:%010
+7:%010
+8:010
+9:
+9:
+instruction->type:d
+instruction->zero_padding: 1
+instruction->width: 10
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%0d
+2:%0d
+3:%0d
+4:%0d
+5:%0d
+6:%0
+7:%0
+8:0
+9:
+9:
+instruction->type:d
+instruction->zero_padding: 1
+instruction->width: 0
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%10d
+2:%10d
+3:%10d
+4:%10d
+5:%10d
+6:%10
+7:%10
+8:10
+9:
+9:
+instruction->type:d
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%10+0d
+2:%10+0d
+3:%10+0d
+4:%10+0d
+5:%100d
+6:%100
+7:%100
+8:100
+9:
+9:
+instruction->type:d
+instruction->zero_padding: 1
+instruction->width: 10
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 1
+instruction->types: 0
+
+1:%-+   10d
+2:%-+   10d
+3:%-+   10d
+4:%-+   10d
+5:%   10d
+6:%   10
+7:%   10
+8: 10
+9: 
+9: 
+instruction->type:d
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 1
+instruction->plus_flag: 1
+instruction->types: 0
+ 
+1:%014-ld
+2:%014-ld
+3:%014-ld
+4:%014-ld
+5:%014ld
+6:%014l
+7:%014
+8:014
+9:
+9:
+instruction->type:d
+instruction->zero_padding: 1
+instruction->width: 14
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 3
+
+1:%-10#12O
+2:%-10#12O
+3:%-10#12O
+4:%-10#12O
+5:%10#12O
+6:%1012
+7:%1012
+8:1012
+9:
+9:
+instruction->type:O
+instruction->zero_padding: 0
+instruction->width: 12
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 1
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%-10%
+2:%-10%
+3:%-10%
+4:%-10%
+5:%10%
+6:10
+7:10
+8:0
+9:
+9:
+instruction->type:%
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+
+1:%-10hhzX
+2:%-10hhzX
+3:%-10hhzX
+4:%-10hhzX
+5:%10hhzX
+6:%10hhz
+7:%10
+8:10
+9:
+9:
+instruction->type:X
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 6
+
+1:%     .2-10d
+2:%     .2-10d
+3:%     .2-10d
+4:%     .2-10d
+5:%     .210d
+6:%     .210
+7:%     .210
+8: .210
+9: .
+9: 
+instruction->type:d
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 1
+instruction->precision: 2
+instruction->alternative_form: 0
+instruction->space: 1
+instruction->plus_flag: 0
+instruction->types: 0
+ 
+1:%lhhc
+2:%lhhc
+3:%lhhc
+4:%lhhc
+5:%lhhc
+6:%lhh
+7:%
+8:
+9:
+9:
+instruction->type:c
+instruction->zero_padding: 0
+instruction->width: 0
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 3
+
+1:%   10hhh   # d
+2:%   10hhh   # d
+3:%   10hhh   # d
+4:%   10hhh   # d
+5:%   10hhh   # d
+6:%   10hhh    
+7:%   10    
+8: 10
+9: 
+9: 
+instruction->type:d
+instruction->zero_padding: 0
+instruction->width: 10
+instruction->minus_flag: 0
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 1
+instruction->plus_flag: 0
+instruction->types: 2
+ 
+1:% 0-4lld
+2:% 0-4lld
+3:% 0-4lld
+4:% 0-4lld
+5:% 04lld
+6:% 04ll
+7:% 04
+8: 04
+9: 
+9: 
+instruction->type:d
+instruction->zero_padding: 1
+instruction->width: 4
+instruction->minus_flag: 1
+instruction->precision: -1
+instruction->alternative_form: 0
+instruction->space: 1
+instruction->plus_flag: 0
+instruction->types: 4
+ 
+1:%.0.#2x
+2:%.0.#2x
+3:%.0.#2x
+4:%.0.#2x
+5:%.0.#2x
+6:%.0.2
+7:%.0.2
+8:.0.2
+9:..
+9:
+instruction->type:x
+instruction->zero_padding: 0
+instruction->width: 2
+instruction->minus_flag: 0
+instruction->precision: 0
+instruction->alternative_form: 1
+instruction->space: 0
+instruction->plus_flag: 0
+instruction->types: 0
+

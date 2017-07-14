@@ -1,4 +1,0 @@
-/nfs/2016/a/apinchuk/CLionProjects/Fdf/cmake-build-debug/CMakeFiles/edit_cache.dir
-/nfs/2016/a/apinchuk/CLionProjects/Fdf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/nfs/2016/a/apinchuk/CLionProjects/Fdf/cmake-build-debug/CMakeFiles/ft.dir
-/nfs/2016/a/apinchuk/CLionProjects/Fdf/cmake-build-debug/CMakeFiles/fdf.dir
